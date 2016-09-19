@@ -6,8 +6,8 @@ public class Vector extends Pair {
     super(x, y);
   }
 
-  public Vector(Vector v) {
-    super(v);
+  public Vector(Pair p) {
+    super(p);
   }
 
   public double getScalar() {
