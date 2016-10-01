@@ -5,11 +5,19 @@ import com.dt.physics.common.features.Calculatable;
 public class Vector extends Pair<Double>implements Calculatable<Vector> {
 
   public Vector(double x, double y) {
-    super(x, y);
+    super(Double.valueOf(x), Double.valueOf(y));
   }
 
   public Vector(Pair<Double> v) {
     super(v);
+  }
+
+  public double getX() {
+    return getP1().doubleValue();
+  }
+
+  public double getY() {
+    return getP2().doubleValue();
   }
 
   public Vector add(Vector other) {

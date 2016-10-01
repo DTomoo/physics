@@ -2,33 +2,33 @@ package com.dt.physics.common;
 
 public abstract class Pair<T> {
 
-  private T x;
-  private T y;
+  private T p1;
+  private T p2;
 
   public Pair(Pair<T> p) {
-    this.x = p.x;
-    this.y = p.y;
+    this.p1 = p.p1;
+    this.p2 = p.p2;
   }
 
-  public Pair(T x, T y) {
-    this.x = x;
-    this.y = y;
+  public Pair(T p1, T p2) {
+    this.p1 = p1;
+    this.p2 = p2;
   }
 
-  public T getX() {
-    return x;
+  public T getP1() {
+    return p1;
   }
 
-  public T getY() {
-    return y;
+  public T getP2() {
+    return p2;
   }
 
   @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((x == null) ? 0 : x.hashCode());
-    result = prime * result + ((y == null) ? 0 : y.hashCode());
+    result = prime * result + ((p1 == null) ? 0 : p1.hashCode());
+    result = prime * result + ((p2 == null) ? 0 : p2.hashCode());
     return result;
   }
 
@@ -41,21 +41,21 @@ public abstract class Pair<T> {
     if (getClass() != obj.getClass())
       return false;
     Pair<T> other = (Pair<T>) obj;
-    if (x == null) {
-      if (other.x != null)
+    if (p1 == null) {
+      if (other.p1 != null)
         return false;
-    } else if (!x.equals(other.x))
+    } else if (!p1.equals(other.p1))
       return false;
-    if (y == null) {
-      if (other.y != null)
+    if (p2 == null) {
+      if (other.p2 != null)
         return false;
-    } else if (!y.equals(other.y))
+    } else if (!p2.equals(other.p2))
       return false;
     return true;
   }
 
   @Override
   public String toString() {
-    return "[x=" + x + ", y=" + y + "]";
+    return "[p1=" + p1 + ", p2=" + p2 + "]";
   }
 }

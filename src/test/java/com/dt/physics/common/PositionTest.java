@@ -48,11 +48,24 @@ public class PositionTest {
   }
 
   @Test
-  public void testAdd() {
+  public void testAddPosition() {
     // GIVEN
     Position pos = new Position(3, 4);
     // WHEN
     Position actual = pos.add(new Position(2, 2));
+    // THEN
+    Assert.assertEquals(3.0d, pos.getX(), 0.001);
+    Assert.assertEquals(4.0d, pos.getY(), 0.001);
+    Assert.assertEquals(5.0d, actual.getX(), 0.001);
+    Assert.assertEquals(6.0d, actual.getY(), 0.001);
+  }
+
+  @Test
+  public void testAddVector() {
+    // GIVEN
+    Position pos = new Position(3, 4);
+    // WHEN
+    Position actual = pos.add(new Vector(2, 2));
     // THEN
     Assert.assertEquals(3.0d, pos.getX(), 0.001);
     Assert.assertEquals(4.0d, pos.getY(), 0.001);
@@ -67,9 +80,19 @@ public class PositionTest {
     // WHEN
     Position actual = pos.subtract(new Position(2, 2));
     // THEN
-    Assert.assertEquals(Integer.valueOf(3), pos.getX());
-    Assert.assertEquals(Integer.valueOf(4), pos.getY());
-    Assert.assertEquals(Integer.valueOf(1), actual.getX());
-    Assert.assertEquals(Integer.valueOf(2), actual.getY());
+    Assert.assertEquals(3, pos.getX());
+    Assert.assertEquals(4, pos.getY());
+    Assert.assertEquals(1, actual.getX());
+    Assert.assertEquals(2, actual.getY());
+  }
+
+  @Test
+  public void testToString() {
+    // GIVEN
+    Position pos = new Position(3, 4);
+    // WHEN
+    String str = pos.toString();
+    // THEN
+    Assert.assertEquals("[x=3,y=4]", str);
   }
 }

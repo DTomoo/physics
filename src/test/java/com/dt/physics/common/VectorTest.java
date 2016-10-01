@@ -56,9 +56,9 @@ public class VectorTest {
     // WHEN
     Vector actual = pos.subtract(new Vector(2, 2));
     // THEN
-    Assert.assertEquals(Double.valueOf(3.0), pos.getX());
-    Assert.assertEquals(Double.valueOf(4.0), pos.getY());
-    Assert.assertEquals(Double.valueOf(1.0), actual.getX());
-    Assert.assertEquals(Double.valueOf(2.0), actual.getY());
+    Assert.assertEquals(3.0d, pos.getX(), 0.00001d);
+    Assert.assertEquals(4.0d, pos.getY(), 0.00001d);
+    Assert.assertEquals(1.0d, actual.getX(), 0.00001d);
+    Assert.assertEquals(2.0d, actual.getY(), 0.00001d);
   }
 }
