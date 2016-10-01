@@ -1,45 +1,34 @@
 package com.dt.physics.common;
 
-public class Pair {
+public abstract class Pair<T> {
 
-  private double x;
-  private double y;
+  private T x;
+  private T y;
 
-  public Pair(Pair p) {
+  public Pair(Pair<T> p) {
     this.x = p.x;
     this.y = p.y;
   }
 
-  public Pair(double x, double y) {
+  public Pair(T x, T y) {
     this.x = x;
     this.y = y;
   }
 
-  public double getX() {
+  public T getX() {
     return x;
   }
 
-  public double getY() {
+  public T getY() {
     return y;
-  }
-
-  public Pair add(Pair p) {
-    return new Pair(this.x + p.x, this.y + p.y);
-  }
-
-  public Pair subtract(Pair p) {
-    return new Pair(this.x - p.x, this.y - p.y);
   }
 
   @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    long temp;
-    temp = Double.doubleToLongBits(x);
-    result = prime * result + (int) (temp ^ (temp >>> 32));
-    temp = Double.doubleToLongBits(y);
-    result = prime * result + (int) (temp ^ (temp >>> 32));
+    result = prime * result + ((x == null) ? 0 : x.hashCode());
+    result = prime * result + ((y == null) ? 0 : y.hashCode());
     return result;
   }
 
@@ -51,10 +40,16 @@ public class Pair {
       return false;
     if (getClass() != obj.getClass())
       return false;
-    Pair other = (Pair) obj;
-    if (Double.doubleToLongBits(x) != Double.doubleToLongBits(other.x))
+    Pair<T> other = (Pair<T>) obj;
+    if (x == null) {
+      if (other.x != null)
+        return false;
+    } else if (!x.equals(other.x))
       return false;
-    if (Double.doubleToLongBits(y) != Double.doubleToLongBits(other.y))
+    if (y == null) {
+      if (other.y != null)
+        return false;
+    } else if (!y.equals(other.y))
       return false;
     return true;
   }
@@ -63,6 +58,4 @@ public class Pair {
   public String toString() {
     return "[x=" + x + ", y=" + y + "]";
   }
-
- 
 }

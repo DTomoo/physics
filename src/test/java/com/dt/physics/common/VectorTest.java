@@ -35,4 +35,30 @@ public class VectorTest {
     // THEN
     Assert.assertEquals(new Vector(6, 8), actual);
   }
+
+  @Test
+  public void testAdd() {
+    // GIVEN
+    Vector pos = new Vector(3, 4);
+    // WHEN
+    Vector actual = pos.add(new Vector(2, 2));
+    // THEN
+    Assert.assertEquals(3.0d, pos.getX(), 0.001);
+    Assert.assertEquals(4.0d, pos.getY(), 0.001);
+    Assert.assertEquals(5.0d, actual.getX(), 0.001);
+    Assert.assertEquals(6.0d, actual.getY(), 0.001);
+  }
+
+  @Test
+  public void testSubtract() {
+    // GIVEN
+    Vector pos = new Vector(3, 4);
+    // WHEN
+    Vector actual = pos.subtract(new Vector(2, 2));
+    // THEN
+    Assert.assertEquals(Double.valueOf(3.0), pos.getX());
+    Assert.assertEquals(Double.valueOf(4.0), pos.getY());
+    Assert.assertEquals(Double.valueOf(1.0), actual.getX());
+    Assert.assertEquals(Double.valueOf(2.0), actual.getY());
+  }
 }

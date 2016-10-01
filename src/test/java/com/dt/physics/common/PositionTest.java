@@ -10,7 +10,7 @@ public class PositionTest {
     // GIVEN
     Position pos1 = new Position(3, 4);
     Position pos2 = new Position(pos1);
-    Position pos3 = new Position(3.0d, 4.0d);
+    Position pos3 = new Position(3, 4);
     // WHEN
     boolean eq12 = pos1.equals(pos2);
     boolean eq13 = pos1.equals(pos3);
@@ -32,9 +32,9 @@ public class PositionTest {
     // GIVEN
     Position pos = new Position(3, 4);
     // WHEN
-    double x = pos.getX();
+    int x = pos.getX();
     // THEN
-    Assert.assertEquals(3.0d, x, 0.001);
+    Assert.assertEquals(3, x);
   }
 
   @Test
@@ -42,9 +42,9 @@ public class PositionTest {
     // GIVEN
     Position pos = new Position(3, 4);
     // WHEN
-    double y = pos.getY();
+    int y = pos.getY();
     // THEN
-    Assert.assertEquals(4.0d, y, 0.001);
+    Assert.assertEquals(4, y);
   }
 
   @Test
@@ -52,7 +52,7 @@ public class PositionTest {
     // GIVEN
     Position pos = new Position(3, 4);
     // WHEN
-    Pair actual = pos.add(new Vector(2, 2));
+    Position actual = pos.add(new Position(2, 2));
     // THEN
     Assert.assertEquals(3.0d, pos.getX(), 0.001);
     Assert.assertEquals(4.0d, pos.getY(), 0.001);
@@ -65,11 +65,11 @@ public class PositionTest {
     // GIVEN
     Position pos = new Position(3, 4);
     // WHEN
-    Pair actual = pos.subtract(new Vector(2, 2));
+    Position actual = pos.subtract(new Position(2, 2));
     // THEN
-    Assert.assertEquals(3.0d, pos.getX(), 0.001);
-    Assert.assertEquals(4.0d, pos.getY(), 0.001);
-    Assert.assertEquals(1.0d, actual.getX(), 0.001);
-    Assert.assertEquals(2.0d, actual.getY(), 0.001);
+    Assert.assertEquals(Integer.valueOf(3), pos.getX());
+    Assert.assertEquals(Integer.valueOf(4), pos.getY());
+    Assert.assertEquals(Integer.valueOf(1), actual.getX());
+    Assert.assertEquals(Integer.valueOf(2), actual.getY());
   }
 }
