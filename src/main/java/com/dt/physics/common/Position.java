@@ -28,6 +28,10 @@ public class Position extends Pair<Integer>implements Calculatable<Position> {
     return new Position(this.getX() - other.getX(), this.getY() - other.getY());
   }
 
+  public Vector getVectorTo(Position other) {
+    return new Vector(other.getX() - this.getX(), other.getY() - this.getY());
+  }
+
   public Position add(Vector vector) {
     return new Position((int) (this.getX() + vector.getX()), (int) (this.getY() + vector.getY()));
   }

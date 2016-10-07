@@ -87,6 +87,17 @@ public class PositionTest {
   }
 
   @Test
+  public void testVectorTo() {
+    // GIVEN
+    Position pos = new Position(3, 4);
+    // WHEN
+    Vector actual = pos.getVectorTo(new Position(2, 2));
+    // THEN
+    Assert.assertEquals(-1, actual.getX(), 0.00001d);
+    Assert.assertEquals(-2, actual.getY(), 0.00001d);
+  }
+
+  @Test
   public void testToString() {
     // GIVEN
     Position pos = new Position(3, 4);
