@@ -36,4 +36,8 @@ public class Vector extends Pair<Double>implements Calculatable<Vector> {
     double factor = behaviorWeight / getScalar();
     return new Vector(this.getX() * factor, this.getY() * factor);
   }
+
+  public Vector round() {
+    return new Vector(Math.round(this.getX()), Math.round(this.getY()));
+  }
 }

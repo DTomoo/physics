@@ -61,4 +61,18 @@ public class VectorTest {
     Assert.assertEquals(1.0d, actual.getX(), 0.00001d);
     Assert.assertEquals(2.0d, actual.getY(), 0.00001d);
   }
+
+  @Test
+  public void testRound() {
+    // GIVEN
+    Vector pos = new Vector(3.4d, 4.5d);
+    // WHEN
+    Vector actual = pos.round();
+    // THEN
+    Assert.assertNotSame(pos, actual);
+    Assert.assertEquals(3.4d, pos.getX(), 0.00001d);
+    Assert.assertEquals(4.5d, pos.getY(), 0.00001d);
+    Assert.assertEquals(3.0d, actual.getX(), 0.00001d);
+    Assert.assertEquals(5.0d, actual.getY(), 0.00001d);
+  }
 }
